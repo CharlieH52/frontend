@@ -8,4 +8,5 @@ module.exports = {
   jsxSingleQuote: false,
   trailingComma: "es5",
   arrowParens: "always",
+  endOfLine: 'lf'
 };
