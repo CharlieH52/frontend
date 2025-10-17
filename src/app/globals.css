@@ -1,4 +1,22 @@
+@font-face {
+	font-family: 'Rye';
+	src: url("/assets/fonts/Rye-Regular.ttf");;
+}
+
+:root {
+	--font-ouija: 'Rye';
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body {
+	width: 100vw;
+	height: 100vh;
+	color: white;
 	background-color: #000;
-	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
