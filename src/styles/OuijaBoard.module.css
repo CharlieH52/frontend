@@ -1,0 +1,104 @@
+.OuijaBoard {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    border-radius: 2rem;
+    transform: translate(-50%, 55%);
+    background-color: rgb(179, 132, 88);
+    width: clamp(360px, 1440px, 100%);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.OuijaBoard__Background {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 45%;
+}
+
+.OuijaBoard__Logo {
+    background-color: red;
+    opacity: 15%;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    width: 12rem;
+    aspect-ratio: 1 / 1;
+}
+
+.OuijaBoard__CornersLayout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.OuijaBoard__Corner {
+    border: 1px solid black;
+    background-color: red;
+    opacity: 15%;
+    width: 10rem;
+    height: 8rem;
+}
+
+.OuijaBoard__Corner--TopLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.OuijaBoard__Corner--TopRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.OuijaBoard__Corner--BotLeft {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.OuijaBoard__Corner--BotRight {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.OuijaBoard__Character {
+    text-transform: uppercase;
+    font-family: var(--font-ouija);
+    font-size: 2.5rem;
+    color: black;
+}
+
+.OuijaBoard__Character--Bye {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.OuijaBoard__Character--Letter {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+}
+
+.OuijaBoard__Character--Yes {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+}
+
+.OuijaBoard__Character--No {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+}
+@media (max-width: 768px) {
+    .OuijaBoard {
+        aspect-ratio: 9 / 16;
+    }
+}

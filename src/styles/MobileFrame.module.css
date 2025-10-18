@@ -1,0 +1,48 @@
+.UserInput {
+    display: flex;
+    flex-direction: column;
+    height: clamp(240px, 360px, 10%);
+    width: clamp(320px, 480px, 100%);
+    position: absolute;
+    border-radius: 2rem 2rem 0 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #323a57;
+    padding: 2rem;
+    bottom: 0;
+    z-index: 1;
+}
+
+.UserInput__Response {
+    display: flex;
+    height: 5rem;
+    justify-content: center;
+    font-style: italic;
+    font-size: 1.4rem;
+}
+
+.UserInput__Controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.UserInput__Input {
+    border: 1px solid #4e5b88;
+    background-color: #323a57;
+    padding: .2rem;
+    height: 2rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.UserInput__InputSubmit {
+    border: none;
+    height: 2rem;
+    border-radius: .5rem;
+    background-color: #4e5b88;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
