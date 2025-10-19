@@ -5,13 +5,17 @@
 
 :root {
 	--font-ouija: 'Rye';
-	--font-size-default: 20px;
+	--font-size-default: 18px;
 }
 
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+}
+
+html {
+	font-size: var(--font-size-default);
 }
 
 body {
