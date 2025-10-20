@@ -1,24 +1,9 @@
 .UserInput {
     display: flex;
     flex-direction: column;
-    height: clamp(240px, 360px, 10%);
-    width: 100%;
-}
-
-.UserInput__Response {
-    display: flex;
-    height: 5rem;
-    justify-content: center;
-    font-style: italic;
-    font-size: 1.2rem;
-}
-
-/* Layout for Input and Button */
-.UserInput__Controls {
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    width: 100%;
 }
 
 /* Input Text */

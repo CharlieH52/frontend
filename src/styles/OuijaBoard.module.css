@@ -4,10 +4,10 @@
     left: 50%;
     bottom: 50%;
     border-radius: 2rem;
-    transform: translate(-50%, 55%);
+    transform: translate(-50%, 50%);
     background-color: var(--color-board);
     width: clamp(360px, 1440px, 100%);
-    height: clamp(640px, 1024px, 100%);
+    height: clamp(640px, 1080px, 100%);
     overflow: hidden;
     color: var(--font-lettering-color);
 }
@@ -17,36 +17,12 @@
     width: 100%;
     height: 100%;
     opacity: 45%;
-}
-
-/* Event Logo */
-.OuijaBoard__Logo {
-    /* background-color: red; */
-    /* aspect-ratio: 1 / 1; */
-    opacity: 85%;
-    position: absolute;
-    left: 50%;
-    top: 15%;
-    transform: translateX(-50%);
-    width: 420px;
-    filter: drop-shadow(0 0 1px var(--color-shadow));
-    pointer-events: none;
-}
-
-.OuijaBoard__LogoImage {
-    object-fit: cover;
-    width: 100%;
-}
-
-/* Corner Images */
-.OuijaBoard__CornersLayout {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
 }
 
+/* Corners */
 .OuijaBoard__Corner {
     background-color: red;
     opacity: 15%;
@@ -54,26 +30,73 @@
     height: 10rem;
 }
 
-.OuijaBoard__Corner--TopLeft {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Layout */
+.OuijaBoard__Layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 100%;
+    height: 100%;
 }
 
-.OuijaBoard__Corner--TopRight {
-    position: absolute;
-    top: 0;
-    right: 0;
+.OuijaBoard__LayoutRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
 }
-.OuijaBoard__Corner--BotLeft {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+
+.OuijaBoard__LayoutColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
-.OuijaBoard__Corner--BotRight {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+
+/* Mid Columns */
+.OuijaBoard__MidSpace {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 2rem;
+    width: 100%;
+}
+
+.OuijaBoard__MidSpace--Horizontal {
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.OuijaBoard__MidSpace--Vertical {
+    flex-direction: column;
+    padding: 2rem;
+}
+
+/* Ghost Response */
+.OuijaBoard__Response {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    width: 640px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-image: linear-gradient(to right, transparent, var(--color-shadow), transparent);
+    border-image-slice: 1;
+    padding: 1rem;
+}
+
+.OuijaBoard__ResponseText {
+    font-style: italic;
+    font-size: 1.8rem;
+}
+
+/* Bottom Column Layout */
+.OuijaBoard__Numbers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
 }
 
 /* Character Styles */
@@ -86,20 +109,11 @@
     pointer-events: none;
 }
 
-.OuijaBoard__DinamicCharacters {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    transform: translateX(-50%);
-    top: 35%;
-    left: 50%;
-    gap: 1rem;
-}
-
+/* Character Lines */
 .OuijaBoard__Line {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
 }
@@ -108,46 +122,22 @@
     font-size: 5rem;
 }
 
-.OuijaBoard__StaticNumbers {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    bottom: 20%;
-    gap: .5rem;
-}
-
 .OuijaBoard__Character--Number {
     font-size: 3.5rem;
 }
 
-/* .OuijaBoard__StaticCharacters {
-    
-} */
-
 .OuijaBoard__Character--Bye {
-    position: absolute;
-    transform: translateX(-50%);
     font-size: 3rem;
-    bottom: 10%;
-    left: 50%;
 }
 
 .OuijaBoard__Character--Yes {
-    position: absolute;
     font-size: 3rem;
-    top: 15%;
-    left: 22%;
 }
 
 .OuijaBoard__Character--No {
-    position: absolute;
     font-size: 3rem;
-    top: 15%;
-    right: 22%;
 }
+
 @media (max-width: 768px) {
     .OuijaBoard {
         aspect-ratio: 9 / 16;
