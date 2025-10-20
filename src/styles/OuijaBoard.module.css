@@ -1,13 +1,15 @@
+/* Game Board */
 .OuijaBoard {
     position: absolute;
     left: 50%;
     bottom: 50%;
     border-radius: 2rem;
     transform: translate(-50%, 55%);
-    background-color: rgb(179, 132, 88);
+    background-color: var(--color-board);
     width: clamp(360px, 1440px, 100%);
-    aspect-ratio: 16 / 9;
+    height: clamp(640px, 1024px, 100%);
     overflow: hidden;
+    color: var(--font-lettering-color);
 }
 
 .OuijaBoard__Background {
@@ -17,17 +19,26 @@
     opacity: 45%;
 }
 
+/* Event Logo */
 .OuijaBoard__Logo {
-    background-color: red;
-    opacity: 15%;
+    /* background-color: red; */
+    /* aspect-ratio: 1 / 1; */
+    opacity: 85%;
     position: absolute;
     left: 50%;
-    top: 5%;
+    top: 15%;
     transform: translateX(-50%);
-    width: 12rem;
-    aspect-ratio: 1 / 1;
+    width: 420px;
+    filter: drop-shadow(0 0 1px var(--color-shadow));
+    pointer-events: none;
 }
 
+.OuijaBoard__LogoImage {
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Corner Images */
 .OuijaBoard__CornersLayout {
     position: absolute;
     top: 0;
@@ -37,11 +48,10 @@
 }
 
 .OuijaBoard__Corner {
-    border: 1px solid black;
     background-color: red;
     opacity: 15%;
-    width: 10rem;
-    height: 8rem;
+    width: 15rem;
+    height: 10rem;
 }
 
 .OuijaBoard__Corner--TopLeft {
@@ -66,36 +76,77 @@
     right: 0;
 }
 
+/* Character Styles */
 .OuijaBoard__Character {
     text-transform: uppercase;
     font-family: var(--font-ouija);
-    font-size: 2.5rem;
-    color: black;
+    font-size: 2rem;
+    opacity: 85%;
+    filter: drop-shadow(0 0 1px var(--color-shadow));
+    pointer-events: none;
 }
 
-.OuijaBoard__Character--Bye {
+.OuijaBoard__DinamicCharacters {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    bottom: 10%;
-    left: 50%;
     transform: translateX(-50%);
+    top: 35%;
+    left: 50%;
+    gap: 1rem;
+}
+
+.OuijaBoard__Line {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .OuijaBoard__Character--Letter {
+    font-size: 5rem;
+}
+
+.OuijaBoard__StaticNumbers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     position: absolute;
-    top: 50%;
-    left: 15%;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 20%;
+    gap: .5rem;
+}
+
+.OuijaBoard__Character--Number {
+    font-size: 3.5rem;
+}
+
+/* .OuijaBoard__StaticCharacters {
+    
+} */
+
+.OuijaBoard__Character--Bye {
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    bottom: 10%;
+    left: 50%;
 }
 
 .OuijaBoard__Character--Yes {
     position: absolute;
-    top: 10%;
-    left: 15%;
+    font-size: 3rem;
+    top: 15%;
+    left: 22%;
 }
 
 .OuijaBoard__Character--No {
     position: absolute;
-    top: 10%;
-    right: 15%;
+    font-size: 3rem;
+    top: 15%;
+    right: 22%;
 }
 @media (max-width: 768px) {
     .OuijaBoard {
