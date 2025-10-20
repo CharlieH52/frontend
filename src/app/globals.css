@@ -4,8 +4,21 @@
 }
 
 :root {
+	/* Font */
 	--font-ouija: 'Rye';
 	--font-size-default: 18px;
+	--font-main-color: white;
+	--font-lettering-color: black;
+	/* Theme */
+	--color-40: #211832;
+	--color-30: #412B6B;
+	--color-20: #5C3E94;
+	--color-10: #F25912;
+	--color-shadow: black;
+	/* Game */
+	--color-board: #b38458;
+	/* Gradients */
+	--grad-input: linear-gradient(to right, transparent, white, transparent);
 }
 
 * {
@@ -21,11 +34,32 @@ html {
 body {
 	width: 100vw;
 	height: 100vh;
-	color: white;
+	color: var(--font-main-color);
 	background-image: url(https://media.istockphoto.com/id/1440693157/es/vector/textura-uniforme-de-madera-de-nogal-con-vetas-horizontales.jpg?s=612x612&w=0&k=20&c=aiA1j9wMoxA-Yx-d-AhoQAyUl-jxXCdepys0NgE1oOI=);
 	background-repeat: no-repeat;
 	background-size: cover;
-	font-size: var(--font-size-default);
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	overflow: hidden;
+	padding: 2rem;
+}
+
+.TabLines__Default {
+	background-color: white;
+	opacity: 45%;
+}
+
+.TabLines__Default--Horizontal {
+	width: 100%;
+	height: 2px;
+}
+
+.TabLines__Default--Vertical {
+	height: 100%;
+	width: 2px;
+}
+
+@media (max-width: 425px) {
+	html {
+		font-size: 14px;
+	}
 }
