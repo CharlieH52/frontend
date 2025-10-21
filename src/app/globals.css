@@ -3,9 +3,15 @@
 	src: url("/fonts/Rye-Regular.ttf");;
 }
 
+@font-face {
+	font-family: 'Mansalva' ;
+	src: url("/fonts/Mansalva-Regular.ttf");
+}
+
 :root {
 	/* Font */
 	--font-ouija: 'Rye';
+	--font-mansalva: 'Mansalva';
 	--font-size-default: 18px;
 	--font-main-color: white;
 	--font-lettering-color: black;
