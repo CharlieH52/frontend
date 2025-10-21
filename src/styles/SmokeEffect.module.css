@@ -1,0 +1,164 @@
+.Smoke__Container {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0; 
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.Background {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.7) 80%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* Capa del humo */
+.Smoke__Wraper {
+  position: absolute; 
+  bottom: -50px;
+  width: 5000%;
+  opacity: 0.25;
+  filter: blur(10px); 
+}
+
+.Smoke__Mask {
+  position: absolute;
+  inset: 0;
+  mask-image: radial-gradient(circle, transparent 30%, black 70%);
+  -webkit-mask-image: radial-gradient(circle, transparent 30%, black 70%);
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  pointer-events: none;
+}
+
+.Smoke__CenterGradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.Smoke {
+  filter: blur(0px);
+  transform-origin: 50% 50%;
+}
+
+.Smoke--Bg1 {
+  animation-delay: 0.5s;
+  animation: smoke1 6s ease-in-out infinite;
+}
+
+.Smoke--Bg2 {
+  animation-delay: 1.5s;
+  animation: smoke2 6s ease-in-out infinite;
+}
+
+.Smoke--Bg3 {
+  width: 500px;
+  animation-delay: 2.5s;
+  animation: smoke3 7s ease-in-out infinite;
+}
+
+@keyframes smoke1 {
+  0% {
+    filter: blur(2px);
+    transform: translateY(0px) scale(-1, 1);
+    opacity: 0.4;
+  }
+  25% {
+    filter: blur(3px);
+    transform: translateY(-15px) scale(-1, 1.05);
+    opacity: 0.6;
+  }
+  50% {
+    filter: blur(4px);
+    transform: translateY(-30px) scale(-1, 1.1);
+    opacity: 0.8;
+  }
+  75% {
+    filter: blur(4px);
+    transform: translateY(-45px) scale(-1, 1.15);
+    opacity: 0.6;
+  }
+  100% {
+    filter: blur(3px);
+    transform: translateY(-60px) scale(-1, 1.2);
+    opacity: 0.4;
+  }
+}
+
+@keyframes smoke2 {
+  0% {
+    filter: blur(2px);
+    transform: translateY(0px) scale(1);
+    opacity: 0.4;
+  }
+  25% {
+    filter: blur(3px);
+    transform: translateY(-20px) scale(1.05);
+    opacity: 0.6;
+  }
+  50% {
+    filter: blur(4px);
+    transform: translateY(-40px) scale(1.1);
+    opacity: 0.8;
+  }
+  75% {
+    filter: blur(4px);
+    transform: translateY(-60px) scale(1.15);
+    opacity: 0.6;
+  }
+  100% {
+    filter: blur(3px);
+    transform: translateY(-80px) scale(1.2);
+    opacity: 0.4;
+  }
+}
+
+@keyframes smoke3 {
+  0% {
+    filter: blur(2px);
+    transform: translateY(0px) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    filter: blur(3px);
+    transform: translateY(-25px) scale(1.05);
+    opacity: 0.6;
+  }
+  50% {
+    filter: blur(4px);
+    transform: translateY(-50px) scale(1.1);
+    opacity: 0.8;
+  }
+  75% {
+    filter: blur(4px);
+    transform: translateY(-75px) scale(1.15);
+    opacity: 0.6;
+  }
+  100% {
+    filter: blur(3px);
+    transform: translateY(-100px) scale(1.2);
+    opacity: 0.3;
+  }
+}
