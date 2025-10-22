@@ -8,10 +8,12 @@ const MuteIcon = () => '🔇';
 
 const GlobalAudio = () => {
     const [isPlaying, setIsPlaying] = useState(false);
-    const audioRef = useRef(new Audio(spookyMusic)); 
-
+    const audio = useRef(null);
+    
     useEffect(() => {
-        const audio = audioRef.current;
+        if (typeof window !== "undefined") {
+            audio.current = new Audio(spookyMusic); 
+        }
         audio.loop = true;
         audio.volume = 0.2;
     }, []);
