@@ -27,14 +27,22 @@
   z-index: 3;
 }
 
+.Light {
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle farthest-side, rgb(255, 248, 179, .1) 0%, rgb(255, 140, 0, .4) 40%, rgb(75, 29, 0, .2) 60%, transparent);
+  z-index: 0;
+  filter: blur(2);
+  animation: extension 5s ease infinite;
+  animation-direction: alternate;
+}
 
-/* Capa del humo */
-.Smoke__Wraper {
-  position: absolute; 
-  bottom: -50px;
-  width: 5000%;
-  opacity: 0.25;
-  filter: blur(10px); 
+@keyframes extension {
+  from {transform: translate(-50%, -50%) scale(1); opacity: 0.2;}
+  to {transform: translate(-50%, -50%) scale(3); opacity: 0.6;}
 }
 
 .Smoke__Mask {
