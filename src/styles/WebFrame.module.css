@@ -1,0 +1,67 @@
+.WebFrame {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: clamp(320px, 360px, 100%);
+    height: 100%;
+    filter: drop-shadow(.2rem 0 .4rem var(--color-shadow));
+    background-color: var(--color-40);
+    padding: 2rem;
+    position: absolute;
+    left: calc(-320px - 2rem);
+    top: 0;
+    gap: 2rem;
+    transition: left .5s ease;
+}
+
+/* Web Logo */
+.WebFrame__Logo {
+    width: 80%;
+    margin-inline: auto;
+    aspect-ratio: 1 / 1;
+    background-color: red;
+    opacity: 15%;
+}
+
+.WebFrame__LogoImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Social Media Grid */
+.WebFrame__Layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24px, 48px));
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+    gap: 1rem;
+}
+
+/* Tab Container */
+.WebFrame__Tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 2rem;
+    right: -2rem;
+    width: 2rem;
+    height: 4rem;
+    background-color: var(--color-40);
+    border-radius: 0 1rem 1rem 0;
+    padding: .5rem;
+}
+
+/* Animation */
+.WebFrame:hover {
+    left: 0;
+}
+
+@media (max-width: 1023px) {
+    .WebFrame {
+        display: none;
+    }
+}

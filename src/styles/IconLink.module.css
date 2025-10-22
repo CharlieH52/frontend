@@ -1,0 +1,25 @@
+.IconLink {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    width: clamp(16px, 48px, 100%);
+    aspect-ratio: 1 / 1;
+    text-decoration: none;
+    color: var(--font-main-color);
+    font-weight: bold;
+    text-align: center;
+    filter: drop-shadow(0 0 .2rem var(--color-shadow));
+}
+
+.IconLink__Figure {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.IconLink__Image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
