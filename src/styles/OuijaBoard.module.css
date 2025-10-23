@@ -34,10 +34,12 @@
 }
 
 .OuijaBoard__Corner {
-    background-color: red;
-    opacity: 15%;
-    width: 15rem;
-    height: 10rem;
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    opacity: 85%;
+    filter: drop-shadow(0 0 1px var(--color-shadow));
+    pointer-events: none;
 }
 
 .OuijaBoard__Corner--TopLeft {
