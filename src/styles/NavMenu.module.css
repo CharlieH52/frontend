@@ -1,0 +1,45 @@
+.NavMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-size);
+    padding: .5rem 2rem;
+    background-color: var(--color-30);
+}
+
+.NavMenu__Title {
+    font-family: var(--font-ouija);
+}
+
+.NavMenu__StartButton {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: white;
+    font-family: var(--font-ouija);
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--color-10);
+    padding: 1rem 2rem;
+}
+
+.NavMenu__Nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    
+    & a {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: var(--font-main-color);
+        text-transform: uppercase;
+    }
+}

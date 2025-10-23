@@ -9,6 +9,8 @@
 }
 
 :root {
+	/* Header */
+	--header-size: 4rem;
 	/* Font */
 	--font-ouija: 'Rye';
 	--font-mansalva: 'Mansalva';
