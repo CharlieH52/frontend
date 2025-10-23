@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function OuijaBoard() {
     return (
         <div className={styles.OuijaBoard}>
-            <Image className={styles.OuijaBoard__Background} src="https://img.pikbest.com/wp/202344/antique-paper-texture-ancient-parchment-vintage-background-with_9931513.jpg!w700wp" alt="" />
+            <Image className={styles.OuijaBoard__Background} width={1920} height={1080} alt="" src="/assets/images/paper-texture.jpg"/>
             <div className={styles.OuijaBoard__CornerLayout}>
                 <Image className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--TopLeft']}`} src="" alt="" />
                 <Image className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--BotLeft']}`} src="" alt="" />
