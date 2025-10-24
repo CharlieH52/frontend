@@ -10,6 +10,7 @@
     height: clamp(640px, 1080px, 100%);
     overflow: hidden;
     color: var(--font-lettering-color);
+    box-shadow: 0 0 96px black inset;
 }
 
 .OuijaBoard__Background {
