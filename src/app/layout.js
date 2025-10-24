@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MobileFrame from "@/components/MobileFrame.jsx";
 import WebFrame from "@/components/WebFrame.jsx";
+import GlobalAudio from "@/components/GlobalAudio";
+import SmokeEffect from "@/components/SmokeEffect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +24,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <GlobalAudio />
         <MobileFrame />
+        <SmokeEffect />
         {/* <WebFrame /> */}
         {children}
       </body>

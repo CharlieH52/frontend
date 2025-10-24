@@ -1,14 +1,15 @@
 import styles from "@/styles/OuijaBoard.module.css";
+import Image from "next/image";
 
 export default function OuijaBoard() {
     return (
         <div className={styles.OuijaBoard}>
-            <img className={styles.OuijaBoard__Background} src="https://img.pikbest.com/wp/202344/antique-paper-texture-ancient-parchment-vintage-background-with_9931513.jpg!w700wp" alt="" />
+            <Image className={styles.OuijaBoard__Background} width={1920} height={1080} alt="" src="/assets/images/paper-texture.jpg"/>
             <div className={styles.OuijaBoard__CornerLayout}>
-                <img className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--TopLeft']}`} src="" alt="" />
-                <img className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--BotLeft']}`} src="" alt="" />
-                <img className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--TopRight']}`} src="" alt="" />
-                <img className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--BotRight']}`} src="" alt="" />
+                <Image className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--TopLeft']}`} width={512} height={512} alt="Sun symbol" src="/assets/images/sun-corner.svg"/>
+                <Image className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--BotLeft']}`} width={512} height={512} alt="Star symbol" src="/assets/images/star-corner.svg"/>
+                <Image className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--TopRight']}`} width={512} height={512} alt="Moon symbol" src="/assets/images/moon-corner.svg"/>
+                <Image className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--BotRight']}`} width={512} height={512} alt="Star symbol" src="/assets/images/star-corner.svg"/>
             </div>
             <div className={styles.OuijaBoard__Layout}>
                 <div className={styles.OuijaBoard__LayoutHeader}>
