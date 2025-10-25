@@ -10,7 +10,7 @@ export default function Ouija() {
         <main className={styles.Ouija}>
             <GlobalAudio />
             <MobileFrame />
-            <SmokeEffect />
+            <SmokeEffect isLightEnabled={true}/>
             <Link className={styles.Ouija__HomeButton} href="/">Regresar</Link> 
             <div className={styles.Ouija__Container}>
                 <OuijaBoard />

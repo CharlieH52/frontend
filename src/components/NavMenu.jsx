@@ -9,7 +9,7 @@ export default function NavMenu() {
             </div>
             <Link className={styles.NavMenu__StartButton} href="/ouija" replace>Jugar</Link>
             <nav className={styles.NavMenu__Nav}>
-                <Link href="/credits" replace>Creditos</Link>
+                <Link href="/credits" replace>Créditos</Link>
             </nav>
         </header>
     );

@@ -1,0 +1,70 @@
+
+.WelcomeScreenContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #0f0e0e;
+    
+}
+
+.Edifice {
+    position: absolute;
+    bottom: 0; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: auto; 
+    max-height: 100vh;
+    opacity: 0.8;
+    filter: brightness(0.7);
+    object-fit: contain; 
+    pointer-events: none;
+    z-index: 1;
+}
+.startButton {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(80, 74, 78);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 6;
+    box-shadow: 0 0 20px rgb(223, 179, 179);
+    transition: background 0.3s ease;
+  }
+  .startButton:hover {
+    background: rgb(157, 183, 240);
+  }
+  
+  .instructionsBox {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    z-index: 6;
+    text-align: center;
+  }
+  .instructionsBox button {
+    margin-top: 20px;
+    background: red;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
