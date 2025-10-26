@@ -4,15 +4,23 @@
     width: 100%;
 }
 
-.Ouija__HomeButton {
-    z-index: 10;
+.Ouija__ControlBar {
+    z-index: 10; 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
-    transform: translate(-50%, -50%);
-    top: 64px;
-    left: 64px;
+    top: 2rem;
+    right: 2rem;
+    transform: translateX(-50%);
+    gap: 1rem;
+}
+
+.Ouija__HomeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: transparent;
     border-radius: 50%;
     border: 3px solid white;
@@ -33,5 +41,5 @@
 .Ouija__Container {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - var(--header-size));
 }
