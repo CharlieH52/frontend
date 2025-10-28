@@ -7,7 +7,7 @@ export default function GameLayout({ children }) {
     return (
         <>
             {/* <GlobalAudio /> */}
-            {/* <MobileFrame /> */}
+            <MobileFrame />
             {/* <SmokeEffect /> */}
             {children}
         </>

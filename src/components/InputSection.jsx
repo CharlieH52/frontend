@@ -1,16 +1,26 @@
 'use client';
+import { sendBackendMessage } from '@/services/backOuijaService';
 import useAppStore from '@/store/useAppStore';
 import styles from '@/styles/InputSection.module.css';
 
 export default function InputSection() {
     const setMessage = useAppStore((state) => state.setMessage);
     const message = useAppStore((state) => state.message);
-    const sendMessage = useAppStore((state) => state.sendMessage);
+    const writeResponse = useAppStore((state) => state.writeResponse);
+    const personality = useAppStore((state) => state.personality);
+    const language = useAppStore((state) => state.language);
+    const error = useAppStore((state) => state.error);
+    const setError = useAppStore((state) => state.setError);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(message);
-        sendMessage(message);
+        if (!message) {
+            setError('Por favor, escribe un mensaje para invocar al mas allá');
+            return;
+        }
+
+        const data = await sendBackendMessage(message, { personality, language });
+        writeResponse(data.response, data.personality, data.language);
     };
     return (
         <form className={styles.UserInput} onSubmit={handleSubmit}>
@@ -21,6 +31,7 @@ export default function InputSection() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
             />
+            {error && <p className={styles.UserInput__InputError}>{error}</p>}
             <button className={styles.UserInput__InputSubmit} type="submit">
                 Invocar
             </button>

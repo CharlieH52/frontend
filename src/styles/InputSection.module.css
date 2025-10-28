@@ -12,7 +12,7 @@
     border-style: solid;
     border-image: var(--grad-input);
     border-image-slice: 1;
-    border-width: .15rem;
+    border-width: 0.15rem;
     background-color: transparent;
     font-size: 1rem;
     height: 3rem;
@@ -28,10 +28,18 @@
 .UserInput__InputSubmit {
     border: none;
     height: 2.5rem;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     background-color: var(--color-10);
     color: var(--font-main-color);
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1rem;
+}
+
+.UserInput__InputError {
+    color: orange;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem 0;
 }
