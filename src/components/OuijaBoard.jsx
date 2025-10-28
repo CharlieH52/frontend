@@ -1,62 +1,23 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
+import useAppStore from '@/store/useAppStore';
 import styles from '@/styles/OuijaBoard.module.css';
 import Image from 'next/image';
 import Planchette from './Planchette';
+import { letters, numbers } from '@/global';
+import MessageResponse from './MessageResponse';
 
 export default function OuijaBoard() {
-    const [currentChar, setCurrentChar] = useState('');
-    const [frase, setFrase] = useState('');
     const spanRefs = useRef({});
     const boardRef = useRef(null);
-    const letters = 'ABCDEFGHIJKLM'.split('');
-    const letters2 = 'NOPQRSTUVWXYZ'.split('');
-    const numbers = '1234567890'.split('');
-    const options = ['SI', 'NO', 'ADIOS'];
-    const allKeys = [...options, ...letters, ...numbers];
-    const specialChars = {
-        Ñ: 'N',
-        Á: 'A',
-        É: 'E',
-        Í: 'I',
-        Ó: 'O',
-        Ú: 'U',
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const value = frase.toUpperCase();
-
-        const chars = options.includes(value) ? [value] : value.split('');
-
-        for (let i = 0; i < chars.length; i++) {
-            const char = chars[i];
-            if (allKeys.includes(char)) {
-                setCurrentChar(char);
-                await new Promise((res) => setTimeout(res, 800));
-            }
-            if (Object.keys(specialChars).includes(char)) {
-                setCurrentChar(specialChars[char]);
-                await new Promise((res) => setTimeout(res, 800));
-            }
-        }
-    };
-
-    useEffect(() => {
-        setInterval(() => {
-            setCurrentChar('A');
-        }, 2000);
-    }, []);
+    const letter = useAppStore((state) => state.currentLetter);
+    const letters1 = letters.slice(0, 13);
+    const letters2 = letters.slice(13);
 
     return (
         <div className={styles.OuijaBoard} ref={boardRef}>
-            <Planchette
-                visible={!!currentChar}
-                boardRef={boardRef}
-                spanRefs={spanRefs}
-                char={currentChar}
-            />
+            <Planchette visible={!!letter} boardRef={boardRef} spanRefs={spanRefs} char={letter} />
             <Image
                 className={styles.OuijaBoard__Background}
                 width={1920}
@@ -102,11 +63,9 @@ export default function OuijaBoard() {
                     >
                         Si
                     </span>
-                    <span className={styles.OuijaBoard__Response}>
-                        <p className={styles.OuijaBoard__ResponseText}>
-                            Respuesta desde el mas allá...
-                        </p>
-                    </span>
+
+                    <MessageResponse />
+
                     <span
                         className={`${styles.OuijaBoard__Character} ${styles['OuijaBoard__Character--No']}`}
                         ref={(el) => (spanRefs.current['NO'] = el)}
@@ -116,7 +75,7 @@ export default function OuijaBoard() {
                 </div>
                 <div className={styles.OuijaBoard__LayoutMain}>
                     <div className={styles.OuijaBoard__Line}>
-                        {letters.map((letter) => (
+                        {letters1.map((letter) => (
                             <span
                                 key={letter}
                                 className={`${styles.OuijaBoard__Character} ${styles['OuijaBoard__Character--Letter']}`}
@@ -136,6 +95,15 @@ export default function OuijaBoard() {
                                 {letter}
                             </span>
                         ))}
+                    </div>
+                    <div className={styles.OuijaBoard__Line}>
+                        {/* TODO: Create space separator */}
+                        <span
+                            className={`${styles.OuijaBoard__Character} ${styles['OuijaBoard__Character--Bye']}`}
+                            ref={(el) => (spanRefs.current['-'] = el)}
+                        >
+                            ___
+                        </span>
                     </div>
                 </div>
                 <div className={styles.OuijaBoard__LayoutFooter}>
