@@ -1,18 +1,28 @@
 .AudioControl {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1000; 
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: 1px solid #ff0000;
+    z-index: 10; 
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 64px;
+    right: 32px;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: 3px solid var(--icon-color);
     border-radius: 50%;
-    padding: 10px;
+    padding: .5rem;
     cursor: pointer;
-    font-size: 1.5rem;
     transition: background 0.3s;
+    opacity: 25%;
+    transition: opacity 0.5s ease;
 }
 
-.AudioControl:hover {
-    background: rgba(255, 0, 0, 0.3);
+.AudioControl__Icon {
+    display: flex;
+    color: var(--icon-color);
+    font-size: var(--icon-size);
+}
+
+.AudioControl:hover, .AudioControl:focus, .AudioControl:target {
+    opacity: 100%;
 }

@@ -34,10 +34,12 @@
 }
 
 .OuijaBoard__Corner {
-    background-color: red;
-    opacity: 15%;
-    width: 15rem;
-    height: 10rem;
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    opacity: 85%;
+    filter: drop-shadow(0 0 1px var(--color-shadow));
+    pointer-events: none;
 }
 
 .OuijaBoard__Corner--TopLeft {
@@ -53,6 +55,7 @@
 }
 
 .OuijaBoard__Corner--BotRight {
+    transform: rotateY(180deg);
     position: absolute;
     bottom: 0;
     right: 0;
@@ -166,8 +169,58 @@
     font-size: 3rem;
 }
 
-@media (max-width: 768px) {
-    .OuijaBoard {
-        aspect-ratio: 9 / 16;
+@media (max-width: 1280px) {
+    .OuijaBoard__CornerLayout {
+        display: none;
     }
+
+    .OuijaBoard__Character--Bye,
+    .OuijaBoard__Character--No,
+    .OuijaBoard__Character--Yes {
+        font-size: 2.6rem
+    }
+
+    .OuijaBoard__Character--Number {
+        font-size: 3rem;
+    }
+
+    .OuijaBoard__Character--Letter {
+        font-size: 3.6rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .OuijaBoard__Character--Bye,
+    .OuijaBoard__Character--No,
+    .OuijaBoard__Character--Yes {
+        font-size: 2.2rem
+    }
+
+    .OuijaBoard__Character--Number {
+        font-size: 2.8rem;
+    }
+
+    .OuijaBoard__Character--Letter {
+        font-size: 3rem;
+    }    
+}
+
+@media (max-width: 768px) {
+    .OuijaBoard__Layout {
+        width: 90%;
+    }
+    
+    .OuijaBoard__Character--Bye,
+    .OuijaBoard__Character--No,
+    .OuijaBoard__Character--Yes {
+        font-size: 2rem
+    }
+
+    .OuijaBoard__Character--Number {
+        font-size: 2.2rem;
+    }
+
+    .OuijaBoard__Character--Letter {
+        font-size: 2.6rem;
+    }    
 }

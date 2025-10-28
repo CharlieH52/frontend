@@ -27,6 +27,9 @@
 	--color-board: #b38458;
 	/* Gradients */
 	--grad-input: linear-gradient(to right, transparent, white, transparent);
+	/* Icons */
+	--icon-size: 1.5rem;
+	--icon-color: white;
 }
 
 * {
