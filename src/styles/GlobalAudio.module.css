@@ -1,12 +1,7 @@
 .AudioControl {
-    z-index: 10; 
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 64px;
-    right: 32px;
-    transform: translate(-50%, -50%);
     background: transparent;
     border: 3px solid var(--icon-color);
     border-radius: 50%;
