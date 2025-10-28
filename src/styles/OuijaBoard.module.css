@@ -33,40 +33,6 @@
     height: 100%;
 }
 
-.OuijaBoard__Corner {
-    width: 320px;
-    height: 320px;
-    object-fit: cover;
-    opacity: 85%;
-    filter: drop-shadow(0 0 1px var(--color-shadow));
-    pointer-events: none;
-}
-
-.OuijaBoard__Corner--TopLeft {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.OuijaBoard__Corner--TopRight {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.OuijaBoard__Corner--BotRight {
-    transform: rotateY(180deg);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.OuijaBoard__Corner--BotLeft {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
 /* Layout */
 .OuijaBoard__Layout {
     display: flex;
