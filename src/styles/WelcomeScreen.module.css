@@ -1,70 +1,163 @@
-
 .WelcomeScreenContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #0f0e0e;
-    
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0f0e0e;
+
 }
 
-.Edifice {
-    position: absolute;
-    bottom: 0; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: auto; 
-    max-height: 100vh;
-    opacity: 0.8;
-    filter: brightness(0.7);
-    object-fit: contain; 
-    pointer-events: none;
-    z-index: 1;
-}
 .startButton {
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgb(80, 74, 78);
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 20px;
-    z-index: 6;
-    box-shadow: 0 0 20px rgb(223, 179, 179);
-    transition: background 0.3s ease;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, #3b0000 0%, #1a0000 100%);
+  color: #f5e9e9;
+  border: 2px solid #8b0000;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+  padding: 16px 42px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  font-family: var(--font-metalMania), cursive;
+  letter-spacing: 1px;
+  z-index: 6;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.startButton:hover {
+  background: radial-gradient(circle, #ff0000 0%, #4b0000 100%);
+  box-shadow: 0 0 45px rgba(255, 0, 0, 0.6);
+  transform: translateX(-50%) scale(1.05);
+}
+
+.instructionsBox {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  color: #f2f2f2;
+  padding: 40px 30px;
+  border-radius: 16px;
+  width: 80%;
+  max-width: 550px;
+  z-index: 6;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.2);
+  animation: fadeInBox 0.8s ease-out;
+}
+
+.instructionsBox h2 {
+  color: #ff4d4d;
+  font-family: var(--font-metalMania), cursive;
+  font-size: 28px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
+  margin-bottom: 16px;
+  animation: spectralFlicker 4s infinite, demonVibration 1.2s infinite;
+}
+
+.instructionsBox p {
+  font-family: var(--font-metalMania), cursive;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #ddd;
+}
+
+.instructionsBox button {
+  margin-top: 25px;
+  background: linear-gradient(180deg, #7a0000 0%, #300000 100%);
+  border: 1px solid #aa0000;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.3);
+}
+
+.buttonOk {
+  font-family: var(--font-metalMania), cursive;
+}
+
+.instructionsBox button:hover {
+  background: linear-gradient(180deg, #ff0000 0%, #550000 100%);
+  box-shadow: 0 0 28px rgba(255, 0, 0, 0.6);
+  transform: scale(1.05);
+}
+
+.DemonFace {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: auto;
+  max-height: 100vh;
+  object-fit: cover;
+  opacity: 0.15;
+  filter: brightness(0.3) contrast(1.5) blur(1.5px);
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.2s ease, filter 0.3s ease;
+}
+.DevathonLogo {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: auto;
+  z-index: 4;
+  opacity: 0.30;
+  pointer-events: none;
+}
+
+.flash {
+  opacity: 0.9 !important;
+  filter: brightness(1.8) contrast(2.2) blur(0.5px);
+}
+@keyframes fadeInBox {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
   }
-  .startButton:hover {
-    background: rgb(157, 183, 240);
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
-  
-  .instructionsBox {
-    position: absolute;
-    bottom: 150px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 30px;
-    border-radius: 12px;
-    width: 80%;
-    max-width: 500px;
-    z-index: 6;
-    text-align: center;
+}
+@keyframes spectralFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(255, 0, 0, 0.7),
+                 0 0 24px rgba(255, 50, 50, 0.4),
+                 0 0 36px rgba(255, 0, 0, 0.2);
   }
-  .instructionsBox button {
-    margin-top: 20px;
-    background: red;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
+  20%, 24%, 55% {
+    opacity: 0.6;
+    text-shadow: none;
   }
-  
+}
+
+@keyframes demonVibration {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-1px, 1px) rotate(-1deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  60% { transform: translate(-2px, 2px) rotate(0deg); }
+  80% { transform: translate(2px, -1px) rotate(1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
