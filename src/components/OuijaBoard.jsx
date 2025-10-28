@@ -1,4 +1,8 @@
 import styles from "@/styles/OuijaBoard.module.css";
+import SunCorner from "@/components/corners/SunCorner.jsx";
+import MoonCorner from "@/components/corners/MoonCorner.jsx";
+import RightStarCorner from "@/components/corners/RightStarCorner.jsx";
+import LeftStarCorner from "@/components/corners/LeftStarCorner.jsx";
 import Image from "next/image";
 
 export default function OuijaBoard() {
@@ -6,10 +10,10 @@ export default function OuijaBoard() {
         <div className={styles.OuijaBoard}>
             <Image className={styles.OuijaBoard__Background} width={1920} height={1080} alt="" src="/assets/images/paper-texture.jpg"/>
             <div className={styles.OuijaBoard__CornerLayout}>
-                <Image className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--TopLeft']}`} width={512} height={512} alt="Sun symbol" src="/assets/images/sun-corner.svg"/>
-                <Image className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--BotLeft']}`} width={512} height={512} alt="Star symbol" src="/assets/images/star-corner.svg"/>
-                <Image className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--TopRight']}`} width={512} height={512} alt="Moon symbol" src="/assets/images/moon-corner.svg"/>
-                <Image className={`${styles.OuijaBoard__Corner} ${styles['OuijaBoard__Corner--BotRight']}`} width={512} height={512} alt="Star symbol" src="/assets/images/star-corner.svg"/>
+                <SunCorner/>
+                <RightStarCorner/>
+                <MoonCorner/>
+                <LeftStarCorner/>
             </div>
             <div className={styles.OuijaBoard__Layout}>
                 <div className={styles.OuijaBoard__LayoutHeader}>
