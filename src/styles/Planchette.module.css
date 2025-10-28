@@ -1,0 +1,46 @@
+.planchette {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.base {
+    fill: #ffffe3;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
+}
+
+.borde_interior {
+    fill: none;
+    stroke: #000;
+    stroke-miterlimit: 10;
+    stroke-width: 5px;
+}
+
+.brillo_lente {
+    fill: #fff;
+    opacity: 0.2;
+}
+
+.borde_lente {
+    fill: #fff;
+    opacity: 0.2;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+@media (min-width: 768px) {
+    .planchette {
+        width: 150px;
+        height: 150px;
+    }
+}
