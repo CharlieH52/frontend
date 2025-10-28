@@ -1,0 +1,21 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: calc(100% - 100px);
+	position: relative;
+}
+
+.title {
+	font-size: 5rem;
+	font-weight: bold;
+	color: #fff;
+}
+
+.subtitle {
+	font-size: large;
+	font-weight: bold;
+	color: #fff;
+}
