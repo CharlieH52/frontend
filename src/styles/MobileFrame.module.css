@@ -32,7 +32,7 @@
 }
 
 /* Animation */
-.MobileFrame:hover {
+.MobileFrame:hover, .MobileFrame:focus, .MobileFrame:target {
     bottom: 0;
 }
 
