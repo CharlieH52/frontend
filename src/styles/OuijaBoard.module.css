@@ -100,7 +100,36 @@
     font-size: 2rem;
     opacity: 85%;
     filter: drop-shadow(0 0 1px var(--color-shadow));
-    pointer-events: none;
+    /* pointer-events: none; */
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+    transition-property: all;
+}
+
+/* Test Effect */
+/* .OuijaBoard__Character:hover {
+    text-shadow: 1px 0 0 orangered, 0 1px 0 orangered, 0 -1px 0 orangered, -1px 0 0 orangered;
+    transform: scale(1.02);
+    animation: burning 1s infinite;
+    animation-direction: alternate;
+} */
+
+.Burning__Effect {
+    text-shadow: 1px 0 0 orangered, 0 1px 0 orangered, 0 -1px 0 orangered, -1px 0 0 orangered;
+    transform: scale(1.01);
+    animation: burning 1s infinite;
+    animation-direction: alternate;
+}
+
+@keyframes burning {
+    from {
+        filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.4)) drop-shadow(0 0 3px rgba(255, 255, 0, 0.5)) drop-shadow(0 0 5px transparent);
+        text-shadow: 1px 0 0 orange, 0 1px 0 orange, 0 -1px 0 orange, -1px 0 0 orange;
+    }
+    to {
+        filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3)) drop-shadow(0 0 6px rgba(255, 68, 0, 0.4)) drop-shadow(0 0 8px rgba(255, 255, 0, 0.4)) brightness(200%);
+        text-shadow: 1px 0 0 orangered, 0 1px 0 orangered, 0 -1px 0 orangered, -1px 0 0 orangered;
+    }
 }
 
 /* Character Lines */
