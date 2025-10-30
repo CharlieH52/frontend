@@ -12,7 +12,7 @@ const useAppStore = create()(
         loading: false,
         error: null,
         allKeys: [...letters, ...numbers, ...options],
-        moda: false,
+        modal: false,
 
         setMessage: (message) => set({ message }),
         setLetter: (letter) => set({ currentLetter: letter }),
