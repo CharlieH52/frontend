@@ -1,7 +1,7 @@
 import styles from "@/styles/MobileFrame.module.css";
 import InputSection from "./InputSection";
 
-export default function MobileFrame({onShowRacoon}) {
+export default function MobileFrame() {
     return (
         <div className={styles.MobileFrame}>
             <div className={styles.MobileFrame__Tab}>
@@ -9,7 +9,7 @@ export default function MobileFrame({onShowRacoon}) {
                 <div className="TabLines__Default TabLines__Default--Horizontal"></div>
                 <div className="TabLines__Default TabLines__Default--Horizontal"></div>
             </div>
-            <InputSection onShowRacoon={onShowRacoon}/>
+            <InputSection />
         </div>
     );
 }
