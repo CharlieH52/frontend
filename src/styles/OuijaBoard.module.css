@@ -1,16 +1,13 @@
 /* Game Board */
 .OuijaBoard {
-    position: absolute;
-    left: 50%;
-    bottom: 50%;
     border-radius: 2rem;
-    transform: translate(-50%, 50%);
     background-color: var(--color-board);
     width: clamp(360px, 1440px, 100%);
     height: clamp(640px, 1080px, 100%);
     overflow: hidden;
     color: var(--font-lettering-color);
     box-shadow: 0 0 96px black inset;
+    position: relative;
 }
 
 .OuijaBoard__Background {
