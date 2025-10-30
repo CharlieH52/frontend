@@ -2,12 +2,12 @@
 
 import { useRef } from 'react';
 import useAppStore from '@/store/useAppStore';
-import styles from "@/styles/OuijaBoard.module.css";
-import SunCorner from "@/components/corners/SunCorner.jsx";
-import MoonCorner from "@/components/corners/MoonCorner.jsx";
-import RightStarCorner from "@/components/corners/RightStarCorner.jsx";
-import LeftStarCorner from "@/components/corners/LeftStarCorner.jsx";
-import Image from "next/image";
+import styles from '@/styles/OuijaBoard.module.css';
+import SunCorner from '@/components/corners/SunCorner.jsx';
+import MoonCorner from '@/components/corners/MoonCorner.jsx';
+import RightStarCorner from '@/components/corners/RightStarCorner.jsx';
+import LeftStarCorner from '@/components/corners/LeftStarCorner.jsx';
+import Image from 'next/image';
 import Planchette from './Planchette';
 import { letters, numbers } from '@/global';
 import MessageResponse from './MessageResponse';
@@ -30,10 +30,10 @@ export default function OuijaBoard() {
                 src="/assets/images/paper-texture.jpg"
             />
             <div className={styles.OuijaBoard__CornerLayout}>
-                <SunCorner/>
-                <RightStarCorner/>
-                <MoonCorner/>
-                <LeftStarCorner/>
+                <SunCorner />
+                <RightStarCorner />
+                <MoonCorner />
+                <LeftStarCorner />
             </div>
             <div className={styles.OuijaBoard__Layout} ref={boardRef}>
                 <div className={styles.OuijaBoard__LayoutHeader}>

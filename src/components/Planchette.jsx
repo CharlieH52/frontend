@@ -14,15 +14,24 @@ export default function Planchette({ spanRefs, boardRef, char }) {
         const boardRect = boardRef.current.getBoundingClientRect();
 
         const { width, height } = placeCenter;
-        const letter = span?.getBoundingClientRect() || { left: 0, top: 0, width: 0, height: 0 };
+        const letter = span?.getBoundingClientRect();
+        if (!letter) {
+            const centerX = boardRect.left + boardRect.width / 2;
+            const bottomY = boardRect.top + boardRect.height;
+            const x = centerX - boardRect.left - width / 2;
+            const y = bottomY - boardRect.top - height;
+            setPosition({ x, y });
+            setVisible(true);
+            return;
+        }
+
         const centerX = letter.left + letter.width / 2;
         const centerY = letter.top + letter.height / 2;
 
         const x = centerX - boardRect.left - width / 2;
-        const y = span ? centerY - boardRect.top - height / 2 : centerY - boardRect.top - height;
+        const y = centerY - boardRect.top - height / 2;
 
         setPosition({ x, y });
-        setVisible(!!char);
     }, [boardRef, char, spanRefs]);
 
     return (
