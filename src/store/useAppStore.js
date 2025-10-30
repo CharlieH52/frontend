@@ -12,6 +12,7 @@ const useAppStore = create()(
         loading: false,
         error: null,
         allKeys: [...letters, ...numbers, ...options],
+        moda: false,
 
         setMessage: (message) => set({ message }),
         setLetter: (letter) => set({ currentLetter: letter }),
@@ -21,6 +22,10 @@ const useAppStore = create()(
         clearResponse: () => set({ response: null, error: null }),
         setAllKeys: (keys) => set({ allKeys: keys }),
         setError: (error) => set({ error }),
+        changeModal: () => {
+            const open = !get().modal;
+            set({modal: open});
+        },
 
         writeResponse: async (response, personality, language) => {
             console.log(response);

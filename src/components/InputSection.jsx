@@ -3,7 +3,7 @@ import { sendBackendMessage } from '@/services/backOuijaService';
 import useAppStore from '@/store/useAppStore';
 import styles from '@/styles/InputSection.module.css';
 
-export default function InputSection({onShowRacoon}) {
+export default function InputSection() {
     const setMessage = useAppStore((state) => state.setMessage);
     const message = useAppStore((state) => state.message);
     const writeResponse = useAppStore((state) => state.writeResponse);
@@ -11,10 +11,7 @@ export default function InputSection({onShowRacoon}) {
     const language = useAppStore((state) => state.language);
     const error = useAppStore((state) => state.error);
     const setError = useAppStore((state) => state.setError);
-
-    const handleRacoonEvent = () => {
-        onShowRacoon();
-    }
+    const changeModal = useAppStore((state) => state.changeModal);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,7 +23,7 @@ export default function InputSection({onShowRacoon}) {
         const lookingPedro = message.trim().toLowerCase();
 
         if (lookingPedro === 'pedro') {
-            handleRacoonEvent();
+            changeModal();
             return;
         }
 
