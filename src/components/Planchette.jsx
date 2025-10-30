@@ -1,12 +1,14 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from '@/styles/Planchette.module.css';
+import useAppStore from '@/store/useAppStore';
 
 export default function Planchette({ spanRefs, boardRef, char }) {
     const center = useRef(null);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
-    const [visible, setVisible] = useState(false);
+    const position = useAppStore((state) => state.planchettePosition);
+    const setPosition = useAppStore((state) => state.setPlanchettePosition);
+    const visible = useAppStore((state) => state.planchetteVisibility);
 
     useEffect(() => {
         const placeCenter = center.current.getBoundingClientRect();
@@ -21,7 +23,7 @@ export default function Planchette({ spanRefs, boardRef, char }) {
             const x = centerX - boardRect.left - width / 2;
             const y = bottomY - boardRect.top - height;
             setPosition({ x, y });
-            setVisible(true);
+
             return;
         }
 
@@ -32,7 +34,7 @@ export default function Planchette({ spanRefs, boardRef, char }) {
         const y = centerY - boardRect.top - height / 2;
 
         setPosition({ x, y });
-    }, [boardRef, char, spanRefs]);
+    }, [boardRef, char, spanRefs, setPosition]);
 
     return (
         <motion.div

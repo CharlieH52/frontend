@@ -12,6 +12,8 @@ const useAppStore = create()(
         loading: false,
         error: null,
         allKeys: [...letters, ...numbers, ...options],
+        planchettePosition: { x: null, y: null },
+        planchetteVisibility: false,
 
         setMessage: (message) => set({ message }),
         setLetter: (letter) => set({ currentLetter: letter }),
@@ -21,6 +23,9 @@ const useAppStore = create()(
         clearResponse: () => set({ response: null, error: null }),
         setAllKeys: (keys) => set({ allKeys: keys }),
         setError: (error) => set({ error }),
+        setPlanchettePosition: (position) => {
+            set({ planchettePosition: position, planchetteVisibility: true });
+        },
 
         writeResponse: async (response, personality, language) => {
             console.log(response);
