@@ -28,19 +28,19 @@ export default function WelcomeScreen() {
     }, []);
 
     return (
-        <div className={styles.WelcomeScreenContainer}>
-            <div className={styles.PresentationContainer}>
-                <SunCorner />
-                <RightStarCorner />
-                <MoonCorner />
-                <LeftStarCorner />
-
-                <div className={styles.textOverlay}>
+        <>
+            <div className={styles.WelcomeScreenContainer}>
+                <div className={styles.Background}></div>
+                <div className={styles.PresentationContainer}>
+                    <SunCorner />
+                    <RightStarCorner />
+                    <MoonCorner />
+                    <LeftStarCorner />
+                </div>
+                <div className={styles.Welcome__Container}>
                     <h1 className={styles.title}>Ouija Virtual</h1>
                     <h2 className={styles.subtitle}>Devathon X</h2>
-
                     <PlanchetteWelcome />
-
                     <ol className={styles.instructionsList}>
                         <li>Cierra la puerta</li>
                         <li>Apaga la luz</li>
@@ -49,22 +49,20 @@ export default function WelcomeScreen() {
                         <li>Empieza con tu invocación</li>
                         <li>Hagas lo que hagas no llames a Pedro</li>
                     </ol>
-
                     <Link className={styles.nextButton} href="/ouija">
                         Adelante
                     </Link>
                 </div>
+                <Image
+                    src={DEMON_FACE}
+                    alt="Demon Face"
+                    className={`${styles.DemonFace} ${flash ? styles.flash : ''}`}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    priority
+                />
             </div>
-
-            <SmokeEffect isLightEnabled={true} />
-            <Image
-                src={DEMON_FACE}
-                alt="Demon Face"
-                className={`${styles.DemonFace} ${flash ? styles.flash : ''}`}
-                fill
-                style={{ objectFit: 'cover' }}
-                priority
-            />
-        </div>
+            <SmokeEffect />
+        </>
     );
 }

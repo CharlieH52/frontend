@@ -1,13 +1,10 @@
 import styles from '@/styles/SmokeEffect.module.css';
 import Image from 'next/image';
 
-export default function SmokeEffect({isLightEnabled}) {
+export default function SmokeEffect() {
     return (
         <div className={`${styles.Smoke__Container} ${styles['smoke-back']}`}>
             <div className={styles.Background}></div>
-            {isLightEnabled && (
-                <div className={styles.Light}></div>
-            )}
             <div className={styles.Smoke__Wraper}>
                 <Image
                     src="/assets/images/smoke-texture.png"
