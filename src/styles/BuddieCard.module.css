@@ -1,0 +1,33 @@
+.BuddieCard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 300px;
+    height: clamp(64px, 72px, 100%);
+}
+
+.BuddieCard__BuddieName {
+    display: flex;
+    width: 100%;
+}
+
+.BuddieCard__Text {
+    text-wrap: nowrap;
+    font-family: var(--font-ouija);
+    font-size: 2rem;
+    color: black;
+    filter: drop-shadow(0 0 1px black);
+}
+
+.BuddieCard__SocialGrid {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}

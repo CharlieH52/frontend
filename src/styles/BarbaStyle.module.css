@@ -1,0 +1,22 @@
+.Barba__Icon {
+    height: 100px;
+    fill: black;
+    filter: drop-shadow(0 0 1px var(--color-shadow));
+    transition: fill 0.4s ease;
+}
+
+.Barba__Icon:hover {
+    fill: #FF0000;
+}     
+
+.Devathon__Icon {
+    height: 100px;
+    fill: black;
+    filter: drop-shadow(0 0 1px var(--color-shadow));
+    transition: fill 0.4s ease;
+}
+
+.Devathon__Icon:hover {
+    fill: #004aad;
+}
+
