@@ -26,6 +26,7 @@ const useAppStore = create()(
         setError: (error) => set({ error }),
         setPlanchettePosition: (position) => {
             set({ planchettePosition: position, planchetteVisibility: true });
+        },
         changeModal: () => {
             const open = !get().modal;
             set({modal: open});
