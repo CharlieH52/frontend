@@ -6,6 +6,16 @@
     align-items: center;
     justify-content: center;
     z-index: 20;
+    opacity: 0;
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+}
+
+.planchette.visible {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s;
 }
 
 .base {
