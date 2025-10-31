@@ -9,6 +9,7 @@ import Image from 'next/image';
 import SmokeEffect from './SmokeEffect';
 import PlanchetteWelcome from './PlanchetteWelcome';
 import Link from 'next/link';
+import ControlBar from './ControlBar';
 
 const DEMON_FACE = '/assets/images/demon-face.png';
 
@@ -62,6 +63,7 @@ export default function WelcomeScreen() {
                     priority
                 />
             </div>
+            <ControlBar home={false} credits={true}/>
             <SmokeEffect />
         </>
     );

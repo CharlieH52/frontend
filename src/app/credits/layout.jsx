@@ -13,7 +13,7 @@ import ControlBar from "@/components/ControlBar";
 export default function CreditsLayout() {
     return(
         <>
-            <ControlBar />
+            <ControlBar home={true} credits={false} />
             <main className={style.Credits}>
                 <div className={corners.OuijaBoard__CornerLayout}>
                     <SunCorner/>
