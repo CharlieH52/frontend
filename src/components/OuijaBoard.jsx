@@ -1,5 +1,4 @@
 'use client';
-
 import { useRef } from 'react';
 import useAppStore from '@/store/useAppStore';
 import styles from "@/styles/OuijaBoard.module.css";
@@ -26,7 +25,7 @@ export default function OuijaBoard() {
                 className={styles.OuijaBoard__Background}
                 width={1920}
                 height={1080}
-                alt=""
+                alt="Board paper texture."
                 src="/assets/images/paper-texture.jpg"
             />
             <div className={styles.OuijaBoard__CornerLayout}>
