@@ -1,146 +1,225 @@
 .WelcomeScreenContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .DemonFace {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100vw;
-  height: auto;
-  max-height: 100vh;
-  object-fit: cover;
-  opacity: 0.01;
-  filter: brightness(0.3) contrast(1.5) blur(1.5px);
-  z-index: 2;
-  pointer-events: none;
-  transition: opacity 0.2s ease, filter 0.3s ease;
+    position: relative;
+    width: 100vw;
+    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
+    opacity: 0.01;
+    filter: brightness(0.3) contrast(1.5) blur(1.5px);
+    z-index: 2;
+    pointer-events: none;
+    transition:
+        opacity 0.2s ease,
+        filter 0.3s ease;
+    visibility: 0.2 ease;
+    z-index: 50;
 }
 
 .flash {
-  opacity: 0.9 !important;
-  filter: brightness(1.8) contrast(2.2) blur(0.5px);
+    opacity: 0.9 !important;
+    filter: brightness(1.8) contrast(2.2) blur(0.5px);
 }
 
 .fissureTexture {
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%, 50%);
-  width: clamp(360px, 1440px, 100%);
-  height: clamp(640px, 1080px, 100%);
-  border-radius: 2rem;
-  object-fit: cover;
-  pointer-events: none;
-  opacity: 0.25;
-  mix-blend-mode: multiply;
-  filter: contrast(1.3) brightness(0.8) sepia(0.2);
-  z-index: 3;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    width: clamp(360px, 1440px, 100%);
+    height: clamp(640px, 1080px, 100%);
+    border-radius: 2rem;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 0.25;
+    mix-blend-mode: multiply;
+    filter: contrast(1.3) brightness(0.8) sepia(0.2);
+    z-index: 3;
 }
 .textOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #3a2a1b;
-  text-align: center;
-  display: flex;
-  flex-direction: column; /* Organiza los elementos verticalmente */
-  align-items: center;   /* Centra horizontalmente los elementos hijos */
-  justify-content: center; /* Centra verticalmente TODO el contenido, lo ajustaremos más abajo */
-  z-index: 6;
-  font-family: 'IM Fell English SC', serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #3a2a1b;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Organiza los elementos verticalmente */
+    align-items: center; /* Centra horizontalmente los elementos hijos */
+    justify-content: center; /* Centra verticalmente TODO el contenido, lo ajustaremos más abajo */
+    z-index: 6;
+    font-family: 'IM Fell English SC', serif;
 }
 
 .title {
-  font-family: var(--font-ouija);
-  font-size: 6rem; /* Se ve bien en la imagen */
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
-  margin-bottom: 0.5em; /* Reducimos el margen para acercarlo al subtítulo */
-  line-height: 1; /* Asegura que el texto no tenga espacio extra arriba/abajo */
+    font-family: var(--font-ouija);
+    font-size: 6rem; /* Se ve bien en la imagen */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    margin-bottom: 0.5em; /* Reducimos el margen para acercarlo al subtítulo */
+    line-height: 1; /* Asegura que el texto no tenga espacio extra arriba/abajo */
 }
 
 .subtitle {
-  font-family: var(--font-ouija);
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
-  line-height: 1;
+    font-family: var(--font-ouija);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
 }
 
 .instructionsList {
-  font-family: var(--font-ouija);
-  list-style: decimal;
-  text-align: left;
-  font-size: 1.2rem;
-  max-width: 500px;
-  line-height: 1;
-  color: #3a2a1b;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  padding-left: 1.5rem;
+    font-family: var(--font-ouija);
+    list-style: decimal;
+    text-align: left;
+    font-size: 1.2rem;
+    max-width: 500px;
+    line-height: 1;
+    color: #3a2a1b;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
 }
 
 .instructionsList li {
-    margin-bottom: 0.5rem; 
+    margin-bottom: 0.5rem;
 }
 
 .nextButton {
-  font-family: var(--font-ouija);
-  background: #5c4a36;
-  color: #fff;
-  padding: 0.6rem 2.5rem;
-  border: none;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  transition: background 0.2s ease;
-  margin-top: 1rem;
+    --accent-color: #5c4a36;
+    font-family: var(--font-ouija);
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.6rem 2.5rem;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 4px solid var(--accent-color);
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease-in-out;
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.nextButton::after {
+    content: '¿Estás Seguro?';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .nextButton:hover {
-  background: #3d3024;
+    background-color: transparent;
+    color: transparent;
+    transform: scale(1.1);
 }
-@keyframes fadeInBox {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(20px);
-  }
 
-  to {
+.nextButton:hover::after {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
 }
+
+@keyframes fadeInBox {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.PresentationContainer {
+    width: 100%;
+    max-width: 1200px;
+    min-height: calc(100vh - 20px);
+    position: relative;
+    background-color: #d2b48c;
+}
+
+.PresentationContainer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/images/fissure-texture.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.3;
+}
+
+.OuijaBoard__CornerLayout {
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+}
+
 @keyframes spectralFlicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-    text-shadow: 0 0 12px rgba(255, 0, 0, 0.7),
-                 0 0 24px rgba(255, 50, 50, 0.4),
-                 0 0 36px rgba(255, 0, 0, 0.2);
-  }
-  20%, 24%, 55% {
-    opacity: 0.6;
-    text-shadow: none;
-  }
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+        text-shadow:
+            0 0 12px rgba(255, 0, 0, 0.7),
+            0 0 24px rgba(255, 50, 50, 0.4),
+            0 0 36px rgba(255, 0, 0, 0.2);
+    }
+    20%,
+    24%,
+    55% {
+        opacity: 0.6;
+        text-shadow: none;
+    }
 }
 
 @keyframes demonVibration {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  20% { transform: translate(-1px, 1px) rotate(-1deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  60% { transform: translate(-2px, 2px) rotate(0deg); }
-  80% { transform: translate(2px, -1px) rotate(1deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    20% {
+        transform: translate(-1px, 1px) rotate(-1deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    60% {
+        transform: translate(-2px, 2px) rotate(0deg);
+    }
+    80% {
+        transform: translate(2px, -1px) rotate(1deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
 }

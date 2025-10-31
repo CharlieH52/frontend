@@ -31,9 +31,31 @@ export default function DecorativePlanchette() {
                     className={styles.brillo_lente}
                     d="M238.29,350.18c-54.16-4.53-95.25-51-93.47-103.62,1.7-50.16,41.91-92.5,93.47-96.75-44.48,13.16-75.13,54.36-74.93,100.63.19,45.95,30.76,86.67,74.93,99.74Z"
                 />
+                <text
+                    id="Letter"
+                    className={styles.number}
+                    x="50%"
+                    y="55%"
+                    dominantBaseline="middle"
+                    textAnchor="middle"
+                    fontSize={200}
+                    fill="#56432a"
+                >
+                    3
+                </text>
+                <text
+                    id="Equipo"
+                    className={styles.teamLabel}
+                    x="50%"
+                    y="82%"
+                    dominantBaseline="middle"
+                    textAnchor="middle"
+                    fontSize={50}
+                    fill="#56432a"
+                >
+                    Equipo
+                </text>
             </svg>
-            <div className={styles.number}>3</div>
-            <span className={styles.teamLabel}>Equipo</span>
         </div>
     );
 }

@@ -1,78 +1,70 @@
-"use client";
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+'use client';
+import { useState, useEffect } from 'react';
 import styles from '@/styles/WelcomeScreen.module.css';
-import OuijaBoard from './OuijaBoard';
+import SunCorner from '@/components/corners/SunCorner';
+import RightStarCorner from '@/components/corners/RightStarCorner';
+import MoonCorner from '@/components/corners/MoonCorner';
+import LeftStarCorner from '@/components/corners/LeftStarCorner';
 import Image from 'next/image';
 import SmokeEffect from './SmokeEffect';
-import PlanchetteWelcome from './PlanchetteWelcome'
+import PlanchetteWelcome from './PlanchetteWelcome';
+import Link from 'next/link';
 
-const DEMON_FACE = "/assets/images/demon-face.png";
-const FISSURE_TEXTURE = "/assets/images/fissure-texture.png"
+const DEMON_FACE = '/assets/images/demon-face.png';
 
 export default function WelcomeScreen() {
-  const [flash, setFlash] = useState(false);
-  const router = useRouter();
+    const [flash, setFlash] = useState(false);
 
-  const handleUnderstood = () => router.push("/ouija");
+    useEffect(() => {
+        const interval = setInterval(
+            () => {
+                setFlash(true);
+                setTimeout(() => setFlash(false), 300);
+            },
+            6000 + Math.random() * 4000
+        );
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFlash(true);
-      setTimeout(() => setFlash(false), 300);
-    }, 6000 + Math.random() * 4000);
+        return () => clearInterval(interval);
+    }, []);
 
-    return () => clearInterval(interval);
-  }, []);
+    return (
+        <div className={styles.WelcomeScreenContainer}>
+            <div className={styles.PresentationContainer}>
+                <SunCorner />
+                <RightStarCorner />
+                <MoonCorner />
+                <LeftStarCorner />
 
-  return (
-    <div className={styles.WelcomeScreenContainer}>
-      <OuijaBoard
-        showAlphabetSeparator={false}
-        showNumbers={false}
-        showYesNo={false}
-        showAdios={false}
-        showSeparator={false}
-      />
-      <Image
-        src={FISSURE_TEXTURE}
-        alt="fissure texture"
-        className={styles.fissureTexture}
-        width={1920}
-        height={1080}
-        priority
-        loading="eager"
-        unoptimized
-      />
-      <div className={styles.textOverlay}>
-        <h1 className={styles.title}>Ouija Virtual</h1>
-        <h2 className={styles.subtitle}>Devathon X</h2>
+                <div className={styles.textOverlay}>
+                    <h1 className={styles.title}>Ouija Virtual</h1>
+                    <h2 className={styles.subtitle}>Devathon X</h2>
 
-        <PlanchetteWelcome/>
+                    <PlanchetteWelcome />
 
-        <ol className={styles.instructionsList}>
-          <li>Cierra la puerta</li>
-          <li>Apaga la luz</li>
-          <li>Respira hondo</li>
-          <li>Piensa en una pregunta para el más allá</li>
-          <li>Empieza con tu invocación</li>
-          <li>Hagas lo que hagas no llames a Pedro</li>
-        </ol>
+                    <ol className={styles.instructionsList}>
+                        <li>Cierra la puerta</li>
+                        <li>Apaga la luz</li>
+                        <li>Respira hondo</li>
+                        <li>Piensa en una pregunta para el más allá</li>
+                        <li>Empieza con tu invocación</li>
+                        <li>Hagas lo que hagas no llames a Pedro</li>
+                    </ol>
 
-        <button className={styles.nextButton} onClick={handleUnderstood}>Adelante</button>
-      </div>
+                    <Link className={styles.nextButton} href="/ouija">
+                        Adelante
+                    </Link>
+                </div>
+            </div>
 
-
-      <SmokeEffect isLightEnabled={true} />
-      <Image
-        src={DEMON_FACE}
-        alt="Demon Face"
-        className={`${styles.DemonFace} ${flash ? styles.flash : ''}`}
-        width={1920}
-        height={1080}
-        priority
-      />
-
-    </div>
-  );
+            <SmokeEffect isLightEnabled={true} />
+            <Image
+                src={DEMON_FACE}
+                alt="Demon Face"
+                className={`${styles.DemonFace} ${flash ? styles.flash : ''}`}
+                fill
+                style={{ objectFit: 'cover' }}
+                priority
+            />
+        </div>
+    );
 }
