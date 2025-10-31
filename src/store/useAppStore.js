@@ -14,6 +14,7 @@ const useAppStore = create()(
         allKeys: [...letters, ...numbers, ...options],
         planchettePosition: { x: null, y: null },
         planchetteVisibility: false,
+        modal: false,
 
         setMessage: (message) => set({ message }),
         setLetter: (letter) => set({ currentLetter: letter }),
@@ -25,6 +26,9 @@ const useAppStore = create()(
         setError: (error) => set({ error }),
         setPlanchettePosition: (position) => {
             set({ planchettePosition: position, planchetteVisibility: true });
+        changeModal: () => {
+            const open = !get().modal;
+            set({modal: open});
         },
 
         writeResponse: async (response, personality, language) => {
