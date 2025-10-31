@@ -1,120 +1,112 @@
+'use client';
+
+import { useRef } from 'react';
+import useAppStore from '@/store/useAppStore';
 import styles from "@/styles/OuijaBoard.module.css";
+import SunCorner from "@/components/corners/SunCorner.jsx";
+import MoonCorner from "@/components/corners/MoonCorner.jsx";
+import RightStarCorner from "@/components/corners/RightStarCorner.jsx";
+import LeftStarCorner from "@/components/corners/LeftStarCorner.jsx";
 import Image from "next/image";
+import Planchette from './Planchette';
+import { letters, numbers } from '@/global';
+import MessageResponse from './MessageResponse';
 
-export default function OuijaBoard({ showAlphabet = true, showNumbers = true, showYesNo = true, showAdios = true }) {
-  return (
-    <div className={styles.OuijaBoard}>
-      <Image
-        className={styles.OuijaBoard__Background}
-        width={1920}
-        height={1080}
-        alt=""
-        src="/assets/images/paper-texture.jpg"
-      />
-      <div className={styles.OuijaBoard__CornerLayout}>
-        <Image
-          className={`${styles.OuijaBoard__Corner} ${styles["OuijaBoard__Corner--TopLeft"]}`}
-          width={512}
-          height={512}
-          alt="Sun symbol"
-          src="/assets/images/sun-corner.svg"
-        />
-        <Image
-          className={`${styles.OuijaBoard__Corner} ${styles["OuijaBoard__Corner--BotLeft"]}`}
-          width={512}
-          height={512}
-          alt="Star symbol"
-          src="/assets/images/star-corner.svg"
-        />
-        <Image
-          className={`${styles.OuijaBoard__Corner} ${styles["OuijaBoard__Corner--TopRight"]}`}
-          width={512}
-          height={512}
-          alt="Moon symbol"
-          src="/assets/images/moon-corner.svg"
-        />
-        <Image
-          className={`${styles.OuijaBoard__Corner} ${styles["OuijaBoard__Corner--BotRight"]}`}
-          width={512}
-          height={512}
-          alt="Star symbol"
-          src="/assets/images/star-corner.svg"
-        />
-      </div>
+export default function OuijaBoard() {
+    const spanRefs = useRef({});
+    const boardRef = useRef(null);
+    const letter = useAppStore((state) => state.currentLetter);
+    const letters1 = letters.slice(0, 13);
+    const letters2 = letters.slice(13);
 
-      <div className={styles.OuijaBoard__Layout}>
-        {showYesNo && (
-            <div className={styles.OuijaBoard__LayoutHeader}>
-          <span
-            className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Yes"]}`}
-          >
-            Si
-          </span>
-          <span className={styles.OuijaBoard__Response}>
-            <p className={styles.OuijaBoard__ResponseText}>
-              Respuesta desde el más allá...
-            </p>
-          </span>
-          <span
-            className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--No"]}`}
-          >
-            No
-          </span>
+    return (
+        <div className={styles.OuijaBoard} ref={boardRef}>
+            <Planchette visible={!!letter} boardRef={boardRef} spanRefs={spanRefs} char={letter} />
+            <Image
+                className={styles.OuijaBoard__Background}
+                width={1920}
+                height={1080}
+                alt=""
+                src="/assets/images/paper-texture.jpg"
+            />
+            <div className={styles.OuijaBoard__CornerLayout}>
+                <SunCorner/>
+                <RightStarCorner/>
+                <MoonCorner/>
+                <LeftStarCorner/>
+            </div>
+            <div className={styles.OuijaBoard__Layout} ref={boardRef}>
+                <div className={styles.OuijaBoard__LayoutHeader}>
+                    <span
+                        className={`${styles.OuijaBoard__Character} ${styles['OuijaBoard__Character--Yes']}`}
+                        ref={(el) => (spanRefs.current['SI'] = el)}
+                    >
+                        Si
+                    </span>
+
+                    <MessageResponse />
+
+                    <span
+                        className={`${styles.OuijaBoard__Character} ${styles['OuijaBoard__Character--No']}`}
+                        ref={(el) => (spanRefs.current['NO'] = el)}
+                    >
+                        No
+                    </span>
+                </div>
+                <div className={styles.OuijaBoard__LayoutMain}>
+                    <div className={styles.OuijaBoard__Line}>
+                        {letters1.map((letter) => (
+                            <span
+                                key={letter}
+                                className={`${styles.OuijaBoard__Character} ${styles['OuijaBoard__Character--Letter']}`}
+                                ref={(el) => (spanRefs.current[letter] = el)}
+                            >
+                                {letter}
+                            </span>
+                        ))}
+                    </div>
+                    <div className={styles.OuijaBoard__Line}>
+                        {letters2.map((letter) => (
+                            <span
+                                key={letter}
+                                className={`${styles.OuijaBoard__Character} ${styles['OuijaBoard__Character--Letter']}`}
+                                ref={(el) => (spanRefs.current[letter] = el)}
+                            >
+                                {letter}
+                            </span>
+                        ))}
+                    </div>
+                    <div className={styles.OuijaBoard__Line}>
+                        {/* TODO: Create space separator */}
+                        <span
+                            className={`${styles.OuijaBoard__Character} ${styles['OuijaBoard__Character--Bye']}`}
+                            ref={(el) => (spanRefs.current['-'] = el)}
+                        >
+                            ___
+                        </span>
+                    </div>
+                </div>
+                <div className={styles.OuijaBoard__LayoutFooter}>
+                    <div className={styles.OuijaBoard__Numbers}>
+                        {numbers.map((number) => (
+                            <span
+                                key={number}
+                                className={`${styles.OuijaBoard__Character} ${styles['OuijaBoard__Character--Number']}`}
+                                ref={(el) => (spanRefs.current[number] = el)}
+                            >
+                                {number}
+                            </span>
+                        ))}
+                    </div>
+
+                    <span
+                        className={`${styles.OuijaBoard__Character} ${styles['OuijaBoard__Character--Bye']}`}
+                        ref={(el) => (spanRefs.current['ADIOS'] = el)}
+                    >
+                        Adios
+                    </span>
+                </div>
+            </div>
         </div>
-        )}
-        {showAlphabet && (
-          <div className={styles.OuijaBoard__LayoutMain}>
-            <div className={styles.OuijaBoard__Line}>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>A</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>B</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>C</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>D</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>E</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>F</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>G</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>H</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>I</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>J</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>K</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>L</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>M</span>
-            </div>
-            <div className={styles.OuijaBoard__Line}>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>N</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>O</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>P</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>Q</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>R</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>S</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>T</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>U</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>V</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>W</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>X</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>Y</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Letter"]}`}>Z</span>
-            </div>
-          </div>
-        )}
-
-        <div className={styles.OuijaBoard__LayoutFooter}>
-          {showNumbers && (
-            <div className={styles.OuijaBoard__Numbers}>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Number"]}`}>1</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Number"]}`}>2</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Number"]}`}>3</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Number"]}`}>4</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Number"]}`}>5</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Number"]}`}>6</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Number"]}`}>7</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Number"]}`}>8</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Number"]}`}>9</span>
-              <span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Number"]}`}>0</span>
-            </div>
-          )}
-          {showAdios && (<span className={`${styles.OuijaBoard__Character} ${styles["OuijaBoard__Character--Bye"]}`}>Adios</span>)}
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
