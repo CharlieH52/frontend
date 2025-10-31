@@ -1,0 +1,43 @@
+.eyesContainer {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 297px;
+  opacity: 0.25;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.eye {
+  width: 38px;
+  height: 38px;
+  background: radial-gradient(circle, #e0dada 25%, rgb(80, 0, 0) 95%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.4);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.pupil {
+  width: 29px;
+  height: 28px;
+  background: black;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+  transition: transform 0.1s linear;
+}
+
+.blink {
+  transform: scaleY(0.1);
+  filter: brightness(0.3);
+}
+
+.flash {
+  box-shadow: 0 0 80px rgba(255, 0, 0, 1);
+  filter: brightness(2) contrast(1.5);
+}
