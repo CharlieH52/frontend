@@ -9,12 +9,14 @@ import BarbaIcon from "@/components/socials/BarbaIcon.jsx";
 import Link from 'next/link';
 import BuddieCard from "@/components/teamcards/BuddieCard";
 import ControlBar from "@/components/ControlBar";
+import SmokeEffect from "@/components/SmokeEffect";
 
 export default function CreditsLayout() {
     return(
         <>
             <ControlBar home={true} credits={false} />
             <main className={style.Credits}>
+                <div className={style.Background}></div>
                 <div className={corners.OuijaBoard__CornerLayout}>
                     <SunCorner/>
                     <RightStarCorner/>
@@ -46,19 +48,9 @@ export default function CreditsLayout() {
                         <span className={style.Spacer__Square}></span>
                         <span className={style.Spacer__Right}></span>
                     </div>
-                    <section className={style.Credits__DevaTeam}>
-                        <span className={style.Credits__Name}>Angie Matiz</span>
-                        <span className={style.Spacer__Square}></span>
-                        <span className={style.Credits__Name}>Dani Rodriguez</span>
-                        <span className={style.Spacer__Square}></span>
-                        <span className={style.Credits__Name}>Pedro Plasencia</span>
-                        <span className={style.Spacer__Square}></span>
-                        <span className={style.Credits__Name}>Ana Rangel</span>
-                        <span className={style.Spacer__Square}></span>
-                        <span className={style.Credits__Name}>Daniel Españero</span>
-                    </section>
                 </div>
             </main>
+            <SmokeEffect />
         </>
     )
 }
