@@ -5,13 +5,9 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-<<<<<<< HEAD
-
-=======
   display: flex;
   justify-content: center;
   align-items: center;
->>>>>>> d28e263 (feat/welcome component)
 }
 
 .DemonFace {
@@ -63,30 +59,18 @@
   align-items: center;
   justify-content: center;
   z-index: 6;
-<<<<<<< HEAD
-  font-family: 'IM Fell English SC', serif;
-}
-
-.title {
-  font-family: var(--font-rye);
-=======
   font-family: 'Rye', serif;
 }
 
 .title {
   font-family: var(--font-ouija);
->>>>>>> d28e263 (feat/welcome component)
   font-size: 6rem;
   text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
   margin-bottom: 0.3em;
 }
 
 .subtitle {
-<<<<<<< HEAD
-  font-family: var(--font-rye);
-=======
   font-family: 'Rye', serif;
->>>>>>> d28e263 (feat/welcome component)
   font-size: 1.6rem;
   margin-bottom: 2rem;
   font-weight: 400;
@@ -119,11 +103,7 @@
 }
 
 .instructionsList {
-<<<<<<< HEAD
-  font-family: var(--font-rye);
-=======
   font-family: 'Rye', serif;
->>>>>>> d28e263 (feat/welcome component)
   list-style: decimal;
   text-align: left;
   font-size: 1.2rem;
