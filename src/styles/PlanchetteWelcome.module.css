@@ -1,0 +1,108 @@
+.planchette {
+    position: relative; /* Cambiado de absolute a relative si .textOverlay lo maneja, o mantener absolute si lo centras con top/left/transform */
+    /* top: 50%; */    /* Estos pueden eliminarse si .textOverlay es flex-column */
+    /* left: 50%; */   /* Estos pueden eliminarse si .textOverlay es flex-column */
+    /* transform: translate(-50%, -50%); */ /* Estos pueden eliminarse si .textOverlay es flex-column */
+
+    width: 150px; /* Tamaño más grande para la planchette */
+    height: 180px; /* Ajusta la altura si es necesario */
+    display: flex;
+    flex-direction: column; /* Para centrar número y equipo verticalmente */
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    animation: spectralFlicker 4s infinite, demonVibration 1.2s infinite;
+    /* Elimina el background y border si el SVG es quien pinta la forma */
+    /* background: #f0e7d8; */
+    /* border: 3px solid #5c4a36; */
+    /* border-radius: 60% 60% 50% 50%; */
+
+
+}
+
+.planchette svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Detrás de los números */
+}
+
+.base {
+    fill: #f1f1b5;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
+}
+
+.borde_interior {
+    fill: none;
+    stroke: #000;
+    stroke-miterlimit: 10;
+    stroke-width: 5px;
+}
+
+.brillo_lente {
+    fill: #fff;
+    opacity: 0.2;
+}
+
+.borde_lente {
+    fill: #fff;
+    opacity: 0.2;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.number, .teamLabel {
+    position: relative;
+    z-index: 2; /* Para que estén encima del SVG */
+    color: #3a2a1b; /* Color de texto que se ve en la imagen */
+}
+
+.number {
+    font-family: 'IM Fell English SC', serif; /* O la fuente que uses para los números */
+    font-size: 3rem; /* Número más grande */
+    font-weight: bold;
+    margin-top: 28px;
+  }
+  
+  .teamLabel {
+    font-family: 'IM Fell English SC', serif; /* O la fuente que uses para el equipo */
+    font-size: 1.2rem; /* Etiqueta más grande */
+    margin-top: 0.1rem; /* Ajusta el espacio entre el número y la etiqueta */
+  }
+
+@media (min-width: 768px) {
+    .planchette {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@keyframes spectralFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+      text-shadow: 0 0 12px rgba(255, 0, 0, 0.7),
+                   0 0 24px rgba(255, 50, 50, 0.4),
+                   0 0 36px rgba(255, 0, 0, 0.2);
+    }
+    20%, 24%, 55% {
+      opacity: 0.6;
+      text-shadow: none;
+    }
+  }
+  
+  @keyframes demonVibration {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    20% { transform: translate(-1px, 1px) rotate(-1deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    60% { transform: translate(-2px, 2px) rotate(0deg); }
+    80% { transform: translate(2px, -1px) rotate(1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
