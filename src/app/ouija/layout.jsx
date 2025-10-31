@@ -9,7 +9,7 @@ export default function GameLayout({ children }) {
     return (
         <main className={styles.Ouija}>
             <EggModal />
-            <ControlBar />
+            <ControlBar home={true} credits={true} />
             <MobileFrame />
             <SmokeEffect />
             <div className={styles.Ouija__Container}>

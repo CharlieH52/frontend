@@ -11,7 +11,8 @@
     gap: 1rem;
 }
 
-.ControlBar__HomeButton {
+.ControlBar__HomeButton,
+.ControlBar__CreditsButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,6 +29,7 @@
     font-size: 1.5rem;
 }
 
-.ControlBar__HomeButton:hover {
+.ControlBar__HomeButton:hover,
+.ControlBar__CreditsButton:hover {
     opacity: 100%;
 }
