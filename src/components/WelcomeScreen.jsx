@@ -2,20 +2,19 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '@/styles/WelcomeScreen.module.css';
+import OuijaBoard from './OuijaBoard';
 import Image from 'next/image';
 import SmokeEffect from './SmokeEffect';
 import RainEffect from './RainEffect';
 import EvilEyes from './EvilEyes';
 
-const DEMON_FACE_URL = "/assets/images/demon-face.png";
-const IMAGE_DEVATHON = "/assets/images/devathon-edition.svg";
+const DEMON_FACE = "/assets/images/demon-face.png";
+const FISSURE_TEXTURE = "/assets/images/fissure-texture.png"
 
 export default function WelcomeScreen() {
-  const [showInstructions, setShowInstructions] = useState(false);
   const [flash, setFlash] = useState(false);
   const router = useRouter();
 
-  const handleStart = () => setShowInstructions(true);
   const handleUnderstood = () => router.push("/ouija");
 
   useEffect(() => {
@@ -29,42 +28,55 @@ export default function WelcomeScreen() {
 
   return (
     <div className={styles.WelcomeScreenContainer}>
-      <SmokeEffect isLightEnabled={true} />
-      <RainEffect />
-      <RainEffect />
-
+      <OuijaBoard
+        showAlphabet={false}
+        showNumbers={false}
+        showYesNo={false}
+        showAdios={false}
+      />
       <Image
-        src={DEMON_FACE_URL}
+        src={FISSURE_TEXTURE}
+        alt="fissure texture"
+        className={styles.fissureTexture}
+        width={1920}
+        height={1080}
+        priority
+      />
+      <div className={styles.textOverlay}>
+        <h1 className={styles.title}>Ouija Virtual</h1>
+        <h2 className={styles.subtitle}>Devathon X</h2>
+
+        <div className={styles.planchette}>
+          <div className={styles.number}>3</div>
+          <span className={styles.teamLabel}>Equipo</span>
+        </div>
+
+        <ol className={styles.instructionsList}>
+          <li>Cierra la puerta</li>
+          <li>Apaga la luz</li>
+          <li>Respira hondo</li>
+          <li>Piensa en una pregunta para el más allá</li>
+          <li>Empieza con tu invocación</li>
+          <li>Hagas lo que hagas no llames a Pedro</li>
+        </ol>
+
+        <button className={styles.nextButton} onClick={handleUnderstood}>Adelante</button>
+      </div>
+
+
+      <SmokeEffect isLightEnabled={true} />
+      {/* <RainEffect />
+      <RainEffect /> */}
+      <Image
+        src={DEMON_FACE}
         alt="Demon Face"
         className={`${styles.DemonFace} ${flash ? styles.flash : ''}`}
         width={1920}
         height={1080}
         priority
       />
-      <Image
-        src={IMAGE_DEVATHON}
-        alt="Devathon Logo"
-        className={styles.DevathonLogo}
-        width={1920}
-        height={1080}
-      />
-      <EvilEyes flash={flash} />
+      {/* <EvilEyes flash={flash} /> */}
 
-      {!showInstructions ? (
-        <button className={styles.startButton} onClick={handleStart}>
-          Iniciar Ritual
-        </button>
-      ) : (
-        <div className={styles.instructionsBox}>
-          <h2>Invocación al Espíritu</h2>
-          <p>
-            En este juego contactarás a una entidad más allá del velo.
-            Responde solo lo necesario. Nunca rompas el círculo.
-            Prepárate para lo que venga...
-          </p>
-          <button className={styles.buttonOk} onClick={handleUnderstood}>Entendido</button>
-        </div>
-      )}
     </div>
   );
 }

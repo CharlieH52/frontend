@@ -19,6 +19,14 @@ const metalMania = localFont({
   style: "normal",
 });
 
+const ryeFont = localFont({
+  src: "../../public/fonts/Rye-Regular.ttf",
+  variable: "--font-rye",
+  weight: "400",
+  style: "normal",
+});
+
+
 export const metadata = {
   title: "Ouija Virtual | Invocación Espectral",
   description: "Una experiencia web inmersiva y misteriosa para invocar al más allá.",
@@ -30,7 +38,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${metalMania.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${metalMania.variable} ${ryeFont.variable}`}>
         {children}
       </body>
     </html>
