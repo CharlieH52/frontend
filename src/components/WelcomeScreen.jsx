@@ -5,6 +5,7 @@ import styles from '@/styles/WelcomeScreen.module.css';
 import OuijaBoard from './OuijaBoard';
 import Image from 'next/image';
 import SmokeEffect from './SmokeEffect';
+import PlanchetteWelcome from './PlanchetteWelcome'
 
 const DEMON_FACE = "/assets/images/demon-face.png";
 const FISSURE_TEXTURE = "/assets/images/fissure-texture.png"
@@ -47,10 +48,7 @@ export default function WelcomeScreen() {
         <h1 className={styles.title}>Ouija Virtual</h1>
         <h2 className={styles.subtitle}>Devathon X</h2>
 
-        <div className={styles.planchette}>
-          <div className={styles.number}>3</div>
-          <span className={styles.teamLabel}>Equipo</span>
-        </div>
+        <PlanchetteWelcome/>
 
         <ol className={styles.instructionsList}>
           <li>Cierra la puerta</li>
