@@ -5,7 +5,11 @@ import styles from '@/styles/WelcomeScreen.module.css';
 import OuijaBoard from './OuijaBoard';
 import Image from 'next/image';
 import SmokeEffect from './SmokeEffect';
-import PlanchetteWelcome from './PlanchetteWelcome'
+<<<<<<< HEAD
+import RainEffect from './RainEffect';
+import EvilEyes from './EvilEyes';
+=======
+>>>>>>> d28e263 (feat/welcome component)
 
 const DEMON_FACE = "/assets/images/demon-face.png";
 const FISSURE_TEXTURE = "/assets/images/fissure-texture.png"
@@ -28,11 +32,18 @@ export default function WelcomeScreen() {
   return (
     <div className={styles.WelcomeScreenContainer}>
       <OuijaBoard
+<<<<<<< HEAD
+        showAlphabet={false}
+        showNumbers={false}
+        showYesNo={false}
+        showAdios={false}
+=======
         showAlphabetSeparator={false}
         showNumbers={false}
         showYesNo={false}
         showAdios={false}
         showSeparator={false}
+>>>>>>> d28e263 (feat/welcome component)
       />
       <Image
         src={FISSURE_TEXTURE}
@@ -41,14 +52,20 @@ export default function WelcomeScreen() {
         width={1920}
         height={1080}
         priority
+<<<<<<< HEAD
+=======
         loading="eager"
         unoptimized
+>>>>>>> d28e263 (feat/welcome component)
       />
       <div className={styles.textOverlay}>
         <h1 className={styles.title}>Ouija Virtual</h1>
         <h2 className={styles.subtitle}>Devathon X</h2>
 
-        <PlanchetteWelcome/>
+        <div className={styles.planchette}>
+          <div className={styles.number}>3</div>
+          <span className={styles.teamLabel}>Equipo</span>
+        </div>
 
         <ol className={styles.instructionsList}>
           <li>Cierra la puerta</li>
@@ -64,6 +81,12 @@ export default function WelcomeScreen() {
 
 
       <SmokeEffect isLightEnabled={true} />
+<<<<<<< HEAD
+      {/* <RainEffect />
+      <RainEffect /> */}
+=======
+
+>>>>>>> d28e263 (feat/welcome component)
       <Image
         src={DEMON_FACE}
         alt="Demon Face"
@@ -72,6 +95,10 @@ export default function WelcomeScreen() {
         height={1080}
         priority
       />
+<<<<<<< HEAD
+      {/* <EvilEyes flash={flash} /> */}
+=======
+>>>>>>> d28e263 (feat/welcome component)
 
     </div>
   );

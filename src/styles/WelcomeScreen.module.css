@@ -5,9 +5,13 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+<<<<<<< HEAD
+
+=======
   display: flex;
   justify-content: center;
   align-items: center;
+>>>>>>> d28e263 (feat/welcome component)
 }
 
 .DemonFace {
@@ -55,58 +59,90 @@
   color: #3a2a1b;
   text-align: center;
   display: flex;
-  flex-direction: column; /* Organiza los elementos verticalmente */
-  align-items: center;   /* Centra horizontalmente los elementos hijos */
-  justify-content: center; /* Centra verticalmente TODO el contenido, lo ajustaremos más abajo */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   z-index: 6;
+<<<<<<< HEAD
   font-family: 'IM Fell English SC', serif;
 }
 
 .title {
+  font-family: var(--font-rye);
+=======
+  font-family: 'Rye', serif;
+}
+
+.title {
   font-family: var(--font-ouija);
-  font-size: 6rem; /* Se ve bien en la imagen */
+>>>>>>> d28e263 (feat/welcome component)
+  font-size: 6rem;
   text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
-  margin-bottom: 0.5em; /* Reducimos el margen para acercarlo al subtítulo */
-  line-height: 1; /* Asegura que el texto no tenga espacio extra arriba/abajo */
+  margin-bottom: 0.3em;
 }
 
 .subtitle {
-  font-family: var(--font-ouija);
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+<<<<<<< HEAD
+  font-family: var(--font-rye);
+=======
+  font-family: 'Rye', serif;
+>>>>>>> d28e263 (feat/welcome component)
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
   font-weight: 400;
-  line-height: 1;
+}
+
+.planchette {
+  background: #f0e7d8;
+  border: 3px solid #5c4a36;
+  border-radius: 60% 60% 50% 50%;
+  width: 100px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.4), 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 2rem;
+  animation: spectralFlicker 4s infinite, demonVibration 1.2s infinite;
+}
+
+.number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3a2a1b;
+}
+
+.teamLabel {
+  font-size: 1rem;
+  margin-top: 0.3rem;
 }
 
 .instructionsList {
-  font-family: var(--font-ouija);
+<<<<<<< HEAD
+  font-family: var(--font-rye);
+=======
+  font-family: 'Rye', serif;
+>>>>>>> d28e263 (feat/welcome component)
   list-style: decimal;
   text-align: left;
   font-size: 1.2rem;
   max-width: 500px;
-  line-height: 1;
+  line-height: 1.6;
   color: #3a2a1b;
-  margin-top: 1rem;
   margin-bottom: 2rem;
-  padding-left: 1.5rem;
-}
-
-.instructionsList li {
-    margin-bottom: 0.5rem; 
 }
 
 .nextButton {
-  font-family: var(--font-ouija);
   background: #5c4a36;
   color: #fff;
-  padding: 0.6rem 2.5rem;
+  padding: 0.6rem 1.5rem;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
   transition: background 0.2s ease;
-  margin-top: 1rem;
 }
 
 .nextButton:hover {
