@@ -1,0 +1,104 @@
+.Credits {
+    display: flex;
+    width: 80vw;
+    height: 100vh;
+    position: relative;
+    background: url('/assets/images/paper-texture.jpg');
+    padding: 2rem;
+}
+
+.Credits__Board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    opacity: 85%;
+    gap: 3.5rem;
+    filter: drop-shadow(0 0 1px var(--color-shadow));
+}
+
+.Credits__Header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.Credits__Title {
+    text-transform: uppercase;
+    font-family: var(--font-ouija);
+    font-size: 5rem;
+    color: black;
+}
+
+.Credits__Container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+}
+
+.Credits__Devathon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+}
+
+.Credits__Team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    width: 480px;
+    height: 100%;
+}
+
+.Credits__DevaTeam {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.Credits__Name {
+    color: black;
+    font-size: 1.2rem;
+    font-family: var(--font-ouija);
+}
+
+.Spacer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 60%;
+    height: fit-content;
+    gap: 1rem;
+}
+
+.Spacer__Square {
+    background-color: black;
+    width: 16px;
+    height: 16px;
+    clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+}
+
+.Spacer__Left {
+    background-color: black;
+    width: 300px;
+    height: 12px;
+    clip-path: polygon(0 50%, 90% 0, 100% 50%, 90% 100%);
+}
+
+.Spacer__Right {
+    transform: rotateY(180deg);
+    background-color: black;
+    width: 300px;
+    height: 12px;
+    clip-path: polygon(0 50%, 90% 0, 100% 50%, 90% 100%);
+}
