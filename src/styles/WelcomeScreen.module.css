@@ -56,19 +56,19 @@
     color: #3a2a1b;
     text-align: center;
     display: flex;
-    flex-direction: column; /* Organiza los elementos verticalmente */
-    align-items: center; /* Centra horizontalmente los elementos hijos */
-    justify-content: center; /* Centra verticalmente TODO el contenido, lo ajustaremos más abajo */
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
     z-index: 6;
     font-family: 'IM Fell English SC', serif;
 }
 
 .title {
     font-family: var(--font-ouija);
-    font-size: 6rem; /* Se ve bien en la imagen */
+    font-size: 6rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-    margin-bottom: 0.5em; /* Reducimos el margen para acercarlo al subtítulo */
-    line-height: 1; /* Asegura que el texto no tenga espacio extra arriba/abajo */
+    margin-bottom: 0.5em;
+    line-height: 1;
 }
 
 .subtitle {
